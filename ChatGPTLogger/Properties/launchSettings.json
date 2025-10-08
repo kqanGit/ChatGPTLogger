@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ChatGPTLogger (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ChatGPTLogger (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
