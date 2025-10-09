@@ -12,4 +12,10 @@
     <ProjectReference Include="..\XmlLogger\XmlLogger.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="XmlLogger">
+      <HintPath>..\XmlLogger\bin\Debug\net9.0\XmlLogger.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

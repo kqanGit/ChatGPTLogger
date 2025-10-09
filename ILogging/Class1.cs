@@ -2,8 +2,6 @@
 {
     public interface ILogger
     {
-        public void Log(string request, string response)
-        {
-        }
+        public void Log(string request, string response);
     }
 }

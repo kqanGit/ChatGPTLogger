@@ -10,4 +10,10 @@
     <ProjectReference Include="..\ILogging\ILogging.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ILogging">
+      <HintPath>..\ILogging\bin\Debug\net9.0\ILogging.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

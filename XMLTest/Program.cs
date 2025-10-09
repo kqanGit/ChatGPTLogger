@@ -1,9 +1,10 @@
 ﻿using System;
 using ILogging;
+using XmlLogger;
 
 namespace XMLTest
 {
-    class Program
+    class Program 
     {
         static void Main(string[] args)
         {
@@ -12,6 +13,7 @@ namespace XMLTest
             string response = "Sample response data";
             logger.Log(request, response);
             Console.WriteLine("Log entry created.");
+
         }
     }
 }
