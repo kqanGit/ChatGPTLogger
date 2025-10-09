@@ -10,7 +10,7 @@ namespace XmlLogger
         public string Log(string request, string response)
         {
             var now = DateTime.Now;
-            var filename = $"log{now.Year}{now.Month}{now.Day}.xml";
+            var filename = $"log_{now.Year}{now.Month}{now.Day}.xml";
 
             XmlDocument doc = new XmlDocument();
 
