@@ -26,7 +26,7 @@ namespace XmlLogger
                 doc.Save(filename);
             }
             else
-            {
+    {
                 doc.Load(filename);
             }
             XmlElement entry = doc.CreateElement("Entry");
