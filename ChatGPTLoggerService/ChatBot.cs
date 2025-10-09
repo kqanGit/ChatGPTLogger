@@ -13,7 +13,7 @@ namespace ChatGPTLoggerService
         /// <summary>
         /// Initializes a new instance of the ChatBotService class with the specified API address.
         /// </summary>
-        /// <param name="apiAddress">The Ollama API endpoint URL</param>
+        /// <param name="apiAddress">The Ollama API endpoint URL Ngrok and access to Kaggle, </param>
         public ChatBotService(string apiAddress = "https://unglaring-unsavoured-elene.ngrok-free.dev")
         {
             _apiAddress = apiAddress;
