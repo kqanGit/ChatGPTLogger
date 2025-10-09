@@ -7,7 +7,7 @@ namespace TxtLogger
         public void Log(string request, string response)
         {
             var now = DateTime.Now;
-            var filename = $"log{now.Year}{now.Month}{now.Day}.txt";
+            var filename = $"log_{now.Year}{now.Month}{now.Day}.txt";
 
             string line = $"{now:yy:MM:dd HH:mm:ss} | Request: {request} | Response: {response}";
 
