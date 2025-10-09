@@ -5,7 +5,9 @@ namespace XmlLogger
 {
     public class XmlLogger : ILogger
     {
-        public string Log(string message)
+        XmlElement _request;
+        XmlElement _response;
+        public string Log(string request, string response)
         {
             var now = DateTime.Now;
             var filename = $"log{now.Year}{now.Month}{now.Day}.xml";
@@ -32,13 +34,16 @@ namespace XmlLogger
             time.InnerText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             entry.AppendChild(time);
 
-            XmlElement msg = doc.CreateElement("Message");
-            msg.InnerText = message;
-            entry.AppendChild(msg);
+            _request = doc.CreateElement("Request");
+            _request.InnerText = request;
+            entry.AppendChild(_request);
+
+            _response = doc.CreateElement("Response");
+            _response.InnerText = response;
+            entry.AppendChild(_response);
 
             XmlElement rootElement = doc.DocumentElement!;
             rootElement.AppendChild(entry);
-
             doc.Save(filename);
 
             return "";
