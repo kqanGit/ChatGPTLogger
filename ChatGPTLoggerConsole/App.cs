@@ -1,6 +1,5 @@
-﻿using ChatGPTLoggerMockService;
+﻿using ChatGPTLoggerService;
 using ILogging;
-using System;
 using System.Reflection;
 
 namespace ChatGPTLoggerConsole {     
@@ -8,7 +7,7 @@ namespace ChatGPTLoggerConsole {
     {
         static void Main(string[] args)
         {
-            ChatGPTService service = new ChatGPTService();
+            ChatBotService service = new ChatBotService();
             Console.WriteLine("=== ChatGPTLogger Console ===");
             Console.WriteLine("Type 'exit' to quit.");
             Console.WriteLine();
@@ -70,17 +69,26 @@ namespace ChatGPTLoggerConsole {
                     break;
                 }
 
-                if (string.IsNullOrWhiteSpace(input))
+                try
                 {
-                    continue;
+                    var request = new Request(input);
+                    var response = service.SendRequest(request);
+
+                    if (response.IsSuccess)
+                    {
+                        Console.WriteLine($"ChatBot: {response.Body}");
+                        Console.WriteLine();
+                        logger!.Log(request.Body, response.Body!);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error: {response.ErrorMessage}");
+                    }
                 }
-
-                Request request = new Request(input);
-                Response response = service.sendRequest(request);
-
-                Console.WriteLine($"ChatGPT Response: {response.Body}");
-                Console.WriteLine();
-                logger!.Log(request.Body, response.Body!);
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
             }
             Console.WriteLine("Session end"); 
             Console.WriteLine();

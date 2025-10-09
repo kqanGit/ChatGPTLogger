@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ChatGPTLoggerService\ChatGPTLoggerService.csproj" />
     <ProjectReference Include="..\ILogging\ILogging.csproj" />
   </ItemGroup>
 
