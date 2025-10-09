@@ -37,18 +37,30 @@ namespace ChatGPTLoggerConsole {
 
             if (loggers.Count > 0)
             {
-                Console.WriteLine($"Logger found: {loggers.Count}");
+                Console.WriteLine($"Select log type to save:");
                 for (int i = 0; i < loggers.Count; i++)
                 {
+                    string loggerType = loggers[i].Item2.GetType().Name;
+                    string loggerName = loggerType.Substring(0, loggerType.Length - "Logger".Length);
                     {
-                        Console.WriteLine($"{loggers[i].Item1}");
+                        Console.WriteLine($"{i} - {loggerName}");
                     }
                 }
-                Console.WriteLine("Select logger (0 - {0}): ", loggers.Count - 1);
+                Console.WriteLine();
+                Console.WriteLine("Select type (0 - {0}): ", loggers.Count - 1);
                 int choice = int.Parse(Console.ReadLine()!);
                 logger = loggers[choice].Item2;
+                string chosenLoggerType = logger.GetType().Name;
+                string chosenLoggerName = chosenLoggerType.Substring(0, chosenLoggerType.Length - "Logger".Length);
+                Console.WriteLine($"Using {chosenLoggerName} logger.");
+                Console.WriteLine();
+                Console.WriteLine("=================================================");
+                Console.WriteLine();
+                Console.WriteLine();
             }
 
+            Console.WriteLine("Start chatting with ChatGPT:");
+            Console.WriteLine();
             while (true)
             {
                 Console.Write("You: ");
