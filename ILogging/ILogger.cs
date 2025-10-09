@@ -1,7 +1,10 @@
 ﻿namespace ILogging
 {
+    /// <summary>
+    /// Interface for logging messages.
+    /// </summary>
     public interface ILogger
     {
-        public void Log(string request, string response);
+        void Log(string request, string response);
     }
 }

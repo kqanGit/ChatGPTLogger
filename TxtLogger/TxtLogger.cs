@@ -2,7 +2,7 @@
 
 namespace TxtLogger
 {
-    public class TxtLogger : ILogger
+    public class TxtLogger : ILogger 
     {
         public void Log(string request, string response)
         {
